@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina & Maximilian | Wedding Celebration</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        powder: {
+                            50: '#f4f7f9',
+                            100: '#ebf1f5',
+                            200: '#d9e4ec',
+                            300: '#b8cedc',
+                            400: '#8da9c4',
+                            500: '#6888a7',
+                            600: '#4e6d8c',
+                            900: '#1c2a39',
+                        },
+                        champagne: {
+                            100: '#fcf8f2',
+                            200: '#f3e8d3',
+                            300: '#e6d7bd',
+                            400: '#d4c09a',
+                            500: '#c5a059',
+                            600: '#aa833e',
+                        },
+                        cream: {
+                            50: '#fafaf8',
+                            100: '#f4f2ee',
+                            200: '#e8e4dc',
+                        },
+                        navy: {
+                            900: '#111b27',
+                            800: '#1c2a39',
+                            700: '#2c3e50',
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['"Cinzel"', 'serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(17, 27, 39, 0.45), rgba(17, 27, 39, 0.55)), url('pictures/IMG_4292.JPG');
+            background-size: cover;
+            background-position: center 25%;
+            background-repeat: no-repeat;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 300px;
+        }
+        .accordion-item.active .chevron {
+            transform: rotate(180deg);
+        }
+        .luxury-border {
+            border: 1px solid #e6d7bd;
+            outline: 1px solid #e6d7bd;
+            outline-offset: -5px;
+        }
+        .hairline-gold {
+            background: linear-gradient(90deg, transparent, #c5a059, transparent);
+        }
+    </style>
+</head>
+<body class="font-sans bg-cream-50 text-navy-800 antialiased selection:bg-powder-200 selection:text-navy-900">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-cream-50/90 backdrop-blur-md border-b border-champagne-200/60" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-22 py-4">
+                <!-- Monogram Crest Title -->
+                <a href="#" class="font-cinzel text-xl sm:text-2xl font-medium tracking-[0.25em] text-navy-900 hover:text-powder-500 transition flex items-center gap-2">
+                    <span>C</span>
+                    <span class="text-champagne-500 font-serif italic text-lg">&amp;</span>
+                    <span>M</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-9 text-xs font-medium tracking-[0.2em] uppercase text-navy-700">
+                    <a href="#story" class="hover:text-powder-500 transition-colors py-1" data-i18n="nav_story">Our Story</a>
+                    <a href="#countdown" class="hover:text-powder-500 transition-colors py-1" data-i18n="nav_countdown">Countdown</a>
+                    <a href="#schedule" class="hover:text-powder-500 transition-colors py-1" data-i18n="nav_schedule">Schedule</a>
+                    <a href="#gallery" class="hover:text-powder-500 transition-colors py-1" data-i18n="nav_gallery">Gallery</a>
+                    <a href="#accommodation" class="hover:text-powder-500 transition-colors py-1" data-i18n="nav_accommodation">Accommodation</a>
+                    <a href="#qanda" class="hover:text-powder-500 transition-colors py-1" data-i18n="nav_qanda">Q &amp; A</a>
+                </nav>
+
+                <!-- Language Selector & Mobile Menu Toggle -->
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector Buttons with Flags -->
+                    <div class="flex items-center border border-champagne-300 rounded-full p-1 bg-cream-100/80 text-sm font-medium tracking-wider gap-1">
+                        <button onclick="setLanguage('en')" id="lang-en" title="English" class="px-2.5 py-1 rounded-full transition-all duration-300 bg-navy-800 text-cream-50 shadow-sm flex items-center gap-1.5">
+                            <span class="text-base leading-none">🇺🇸</span>
+                            <span class="text-[11px]">EN</span>
+                        </button>
+                        <button onclick="setLanguage('de')" id="lang-de" title="Deutsch" class="px-2.5 py-1 rounded-full transition-all duration-300 text-navy-700 hover:text-powder-500 flex items-center gap-1.5">
+                            <span class="text-base leading-none">🇩🇪</span>
+                            <span class="text-[11px]">DE</span>
+                        </button>
+                        <button onclick="setLanguage('es')" id="lang-es" title="Español" class="px-2.5 py-1 rounded-full transition-all duration-300 text-navy-700 hover:text-powder-500 flex items-center gap-1.5">
+                            <span class="text-base leading-none">🇦🇷</span>
+                            <span class="text-[11px]">ES</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-navy-800 hover:text-powder-500 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-50/98 border-b border-champagne-200 px-4 pt-4 pb-6 space-y-4 text-center uppercase tracking-[0.2em] text-xs font-medium text-navy-800">
+            <a href="#story" class="block py-2 hover:text-powder-500 transition" onclick="toggleMobileMenu()" data-i18n="nav_story">Our Story</a>
+            <a href="#countdown" class="block py-2 hover:text-powder-500 transition" onclick="toggleMobileMenu()" data-i18n="nav_countdown">Countdown</a>
+            <a href="#schedule" class="block py-2 hover:text-powder-500 transition" onclick="toggleMobileMenu()" data-i18n="nav_schedule">Schedule</a>
+            <a href="#gallery" class="block py-2 hover:text-powder-500 transition" onclick="toggleMobileMenu()" data-i18n="nav_gallery">Gallery</a>
+            <a href="#accommodation" class="block py-2 hover:text-powder-500 transition" onclick="toggleMobileMenu()" data-i18n="nav_accommodation">Accommodation</a>
+            <a href="#qanda" class="block py-2 hover:text-powder-500 transition" onclick="toggleMobileMenu()" data-i18n="nav_qanda">Q &amp; A</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH DEDICATED IMAGE TAG -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 bg-gradient-to-b from-powder-100/70 via-cream-50 to-white border-b border-champagne-200/60">
+        <div class="max-w-5xl mx-auto text-center space-y-8">
+            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-normal leading-tight tracking-[0.12em] text-navy-900">
+                Carolina <span class="font-serif italic text-champagne-500 lowercase text-3xl sm:text-5xl md:text-6xl">&amp;</span> Maximilian
+            </h1>
+            
+            <div class="w-32 h-[1px] hairline-gold mx-auto"></div>
+            
+            <p class="text-base sm:text-xl font-serif tracking-[0.2em] uppercase text-powder-600 font-normal" data-i18n="hero_date">April 15, 2028 • Zurich, Switzerland</p>
+
+            <!-- Prominent Portrait Card -->
+            <div class="mt-8 max-w-3xl mx-auto p-3 sm:p-4 bg-white border border-champagne-300 rounded-sm shadow-xl luxury-border">
+                <div class="overflow-hidden rounded-sm relative aspect-[4/5] sm:aspect-[16/10]">
+                    <img src="pictures/IMG_4292.JPG" alt="Carolina & Maximilian" class="w-full h-full object-cover object-[center_25%] hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION -->
+    <section id="countdown" class="py-20 bg-white border-b border-champagne-200/60">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <span class="text-xs uppercase tracking-[0.3em] text-champagne-500 font-medium block mb-2" data-i18n="cd_header">Save The Date</span>
+            <h2 class="font-cinzel text-2xl sm:text-4xl text-navy-900 mb-10 tracking-[0.1em]" data-i18n="countdown_title">Counting Down to the Big Day</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 max-w-3xl mx-auto">
+                <div class="bg-powder-100/60 border border-powder-200 rounded-lg p-6 luxury-border">
+                    <span id="cd-days" class="font-cinzel text-3xl sm:text-5xl text-navy-900 font-normal block">00</span>
+                    <span class="text-[11px] uppercase tracking-[0.2em] text-powder-600 mt-3 block" data-i18n="cd_days">Days</span>
+                </div>
+                <div class="bg-powder-100/60 border border-powder-200 rounded-lg p-6 luxury-border">
+                    <span id="cd-hours" class="font-cinzel text-3xl sm:text-5xl text-navy-900 font-normal block">00</span>
+                    <span class="text-[11px] uppercase tracking-[0.2em] text-powder-600 mt-3 block" data-i18n="cd_hours">Hours</span>
+                </div>
+                <div class="bg-powder-100/60 border border-powder-200 rounded-lg p-6 luxury-border">
+                    <span id="cd-minutes" class="font-cinzel text-3xl sm:text-5xl text-navy-900 font-normal block">00</span>
+                    <span class="text-[11px] uppercase tracking-[0.2em] text-powder-600 mt-3 block" data-i18n="cd_minutes">Minutes</span>
+                </div>
+                <div class="bg-powder-100/60 border border-powder-200 rounded-lg p-6 luxury-border">
+                    <span id="cd-seconds" class="font-cinzel text-3xl sm:text-5xl text-navy-900 font-normal block">00</span>
+                    <span class="text-[11px] uppercase tracking-[0.2em] text-powder-600 mt-3 block" data-i18n="cd_seconds">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR STORY SECTION -->
+    <section id="story" class="py-24 bg-cream-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+            <div class="w-12 h-12 rounded-full border border-champagne-400 mx-auto flex items-center justify-center text-champagne-600 font-serif text-xl italic mb-2">
+                C&amp;M
+            </div>
+            <span class="text-xs uppercase tracking-[0.3em] text-powder-500 font-medium block" data-i18n="story_subtitle">Welcome</span>
+            <h2 class="font-cinzel text-3xl sm:text-5xl text-navy-900 tracking-[0.08em]" data-i18n="story_title">Two Worlds, One Heart</h2>
+            <div class="w-24 h-[1px] hairline-gold mx-auto"></div>
+            
+            <p class="text-base sm:text-lg text-navy-700 leading-relaxed font-serif pt-4 max-w-3xl mx-auto" data-i18n="story_text_1">
+                When an Argentinian spark meets German devotion, something truly magical happens. Our love story is the union of two distinct cultures—blending South American warmth, passion, and joie de vivre with European precision, sincerity, and grounded romanticism.
+            </p>
+            <p class="text-base sm:text-lg text-navy-700 leading-relaxed font-serif max-w-3xl mx-auto" data-i18n="story_text_2">
+                Across borders, languages, and continents, we found a shared rhythm and built a home together in Switzerland. Now, surrounded by the stunning landscapes of Zurich and the people we cherish most, we are overjoyed to say 'I do' and dance into our forever.
+            </p>
+        </div>
+    </section>
+
+    <!-- ABOUT THE VENUE SECTION -->
+    <section id="venue" class="py-20 bg-white border-t border-b border-champagne-200/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+            <span class="text-xs uppercase tracking-[0.3em] text-champagne-500 font-medium block" data-i18n="venue_subtitle">Location</span>
+            <h2 class="font-cinzel text-3xl sm:text-5xl text-navy-900 tracking-[0.08em]" data-i18n="venue_title">About The Venue</h2>
+            <div class="w-24 h-[1px] hairline-gold mx-auto"></div>
+            
+            <h3 class="font-serif text-2xl sm:text-3xl text-navy-800 font-medium" data-i18n="venue_name">Renaissance Zürich Tower Hotel</h3>
+            
+            <p class="text-base sm:text-lg text-navy-700 leading-relaxed font-serif max-w-2xl mx-auto" data-i18n="venue_desc">
+                Located in the dynamic heart of Zurich West, our wedding celebration will unfold at the Renaissance Zürich Tower Hotel.
+            </p>
+
+            <!-- Embedded Interactive Map Frame -->
+            <div class="mt-8 p-3 bg-white border border-champagne-300 rounded-sm shadow-md luxury-border">
+                <div class="w-full h-80 sm:h-96 rounded-sm overflow-hidden relative bg-powder-100 flex items-center justify-center">
+                    <iframe 
+                        title="Renaissance Zürich Tower Hotel Location Map"
+                        src="https://maps.google.com/maps?q=Renaissance%20Zurich%20Tower%20Hotel,%20Turbinenstrasse%2020,%208005%20Z%C3%BCrich&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        class="w-full h-full border-0 relative z-10" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-powder-600 font-sans tracking-wider uppercase">
+                    <span>Turbinenstrasse 20, 8005 Zürich, Switzerland</span>
+                    <a href="https://maps.google.com/?q=Renaissance+Zurich+Tower+Hotel+Turbinenstrasse+20+8005+Zurich" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-navy-800 text-cream-50 px-4 py-2 rounded-full hover:bg-powder-600 transition text-[11px] font-medium tracking-widest uppercase">
+                        <i class="fa-solid fa-location-dot text-champagne-400"></i>
+                        <span data-i18n="open_maps_btn">Open in Google Maps</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-24 bg-cream-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-powder-500 font-medium" data-i18n="gallery_subtitle">Memories</span>
+                <h2 class="font-cinzel text-3xl sm:text-5xl text-navy-900 tracking-[0.08em]" data-i18n="gallery_title">Photo Gallery</h2>
+                <div class="w-24 h-[1px] hairline-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Photo 1: Kiss photo -->
+                <div class="group relative overflow-hidden rounded-sm border border-champagne-300 p-2 bg-white shadow-sm hover:shadow-md transition-all duration-300 luxury-border">
+                    <div class="overflow-hidden aspect-[4/5] sm:aspect-[3/4]">
+                        <img src="pictures/IMG_4287.JPG" alt="Carolina & Maximilian Kiss" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+                <!-- Photo 2: Close-up of eyes -->
+                <div class="group relative overflow-hidden rounded-sm border border-champagne-300 p-2 bg-white shadow-sm hover:shadow-md transition-all duration-300 luxury-border">
+                    <div class="overflow-hidden aspect-[4/5] sm:aspect-[3/4]">
+                        <img src="pictures/IMG_4284.JPG" alt="Carolina & Maximilian Eyes" class="w-full h-full object-contain object-center transition duration-700">
+                    </div>
+                </div>
+                <!-- Photo 3: Engagement ring detail -->
+                <div class="group relative overflow-hidden rounded-sm border border-champagne-300 p-2 bg-white shadow-sm hover:shadow-md transition-all duration-300 luxury-border">
+                    <div class="overflow-hidden aspect-[4/5] sm:aspect-[3/4]">
+                        <img src="pictures/IMG_4296.JPG" alt="Engagement Ring Detail" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCOMMODATION SECTION -->
+    <section id="accommodation" class="py-24 bg-powder-50/80 border-t border-b border-champagne-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne-500 font-medium" data-i18n="acc_subtitle">Where to Stay</span>
+                <h2 class="font-cinzel text-3xl sm:text-5xl text-navy-900 tracking-[0.08em]" data-i18n="acc_title">Accommodation</h2>
+                <div class="w-24 h-[1px] hairline-gold mx-auto"></div>
+                <p class="text-base sm:text-lg text-navy-700 font-serif max-w-2xl mx-auto pt-2" data-i18n="acc_intro">
+                    We want your stay in Zurich to be as comfortable as possible. Here are our top hotel recommendations close to the venue.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Option 1: ibis Budget & ibis Zurich City West -->
+                <div class="bg-white border border-champagne-300 rounded-sm p-8 shadow-sm flex flex-col justify-between luxury-border">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-full bg-powder-100 flex items-center justify-center text-powder-600 text-lg mb-4">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-navy-900 font-medium" data-i18n="acc_ibis_title">ibis / ibis budget Zurich City West</h3>
+                        <p class="text-xs font-semibold text-champagne-600 tracking-wider uppercase" data-i18n="acc_ibis_badge">Directly Across The Street</p>
+                        <p class="text-sm text-navy-700 font-sans font-light leading-relaxed" data-i18n="acc_ibis_desc">
+                            Located right opposite our wedding venue. Rooms range from 100 to 140 per night. If you are interested in staying here, please let us know in advance as we will request a group discount!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Option 2: Renaissance Zurich Tower Hotel -->
+                <div class="bg-white border border-champagne-300 rounded-sm p-8 shadow-sm flex flex-col justify-between luxury-border relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-champagne-500 text-white text-[10px] uppercase font-semibold px-3 py-1 tracking-widest">15% Off</div>
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-full bg-powder-100 flex items-center justify-center text-powder-600 text-lg mb-4">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-navy-900 font-medium" data-i18n="acc_venue_title">Renaissance Zürich Tower Hotel</h3>
+                        <p class="text-xs font-semibold text-champagne-600 tracking-wider uppercase" data-i18n="acc_venue_badge">Official Wedding Venue</p>
+                        <p class="text-sm text-navy-700 font-sans font-light leading-relaxed" data-i18n="acc_venue_desc">
+                            Stay right where the celebration takes place! Guests attending our wedding can enjoy a 15% discount on room bookings at the Renaissance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Option 3: Airbnb & Apartments -->
+                <div class="bg-white border border-champagne-300 rounded-sm p-8 shadow-sm flex flex-col justify-between luxury-border">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-full bg-powder-100 flex items-center justify-center text-powder-600 text-lg mb-4">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-navy-900 font-medium" data-i18n="acc_airbnb_title">Airbnb &amp; Apartments</h3>
+                        <p class="text-xs font-semibold text-champagne-600 tracking-wider uppercase" data-i18n="acc_airbnb_badge">Zurich West Area</p>
+                        <p class="text-sm text-navy-700 font-sans font-light leading-relaxed" data-i18n="acc_airbnb_desc">
+                            There are also wonderful Airbnb apartments and private rentals available around the Zurich West district, just a short walk or tram ride from the hotel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A SECTION -->
+    <section id="qanda" class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-3 mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-champagne-500 font-medium" data-i18n="qa_subtitle">Information</span>
+                <h2 class="font-cinzel text-3xl sm:text-5xl text-navy-900 tracking-[0.08em]" data-i18n="qa_title">Questions &amp; Answers</h2>
+                <div class="w-24 h-[1px] hairline-gold mx-auto"></div>
+            </div>
+
+            <!-- Accordion items -->
+            <div class="space-y-4" id="accordion">
+                <!-- Q1 -->
+                <div class="accordion-item border border-champagne-300 rounded-sm bg-cream-50/50 overflow-hidden transition">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
+                        <span class="font-serif text-xl text-navy-900 font-normal tracking-wide" data-i18n="qa_q1">What is the dress code?</span>
+                        <i class="fa-solid fa-chevron-down text-champagne-500 chevron transition-transform text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 text-navy-700 font-sans text-sm font-light leading-relaxed">
+                        <p class="pb-5" data-i18n="qa_a1">The dress code is Elegant Formal. Suits and ties or formal evening gowns are requested. Kindly note: Guests should refrain from wearing white or beige dresses. White dress shirts for men are completely fine! Thank you so much for your understanding.</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="accordion-item border border-champagne-300 rounded-sm bg-cream-50/50 overflow-hidden transition">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
+                        <span class="font-serif text-xl text-navy-900 font-normal tracking-wide" data-i18n="qa_q2">Where is the wedding and how do I get there?</span>
+                        <i class="fa-solid fa-chevron-down text-champagne-500 chevron transition-transform text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 text-navy-700 font-sans text-sm font-light leading-relaxed">
+                        <p class="pb-5" data-i18n="qa_a2">The entire wedding celebration takes place at the Renaissance Zürich Tower Hotel (Turbinenstrasse 20, 8005 Zürich). It is located in Zurich West and is very easy to reach by train (S-Bahn stop Bahnhof Hardbrücke, 3 min walk), Tram 8 or 17 (stops Hardbrücke or Schiffbau), or taxi. Please check the embedded map in the 'About The Venue' section above for exact routing.</p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="accordion-item border border-champagne-300 rounded-sm bg-cream-50/50 overflow-hidden transition">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
+                        <span class="font-serif text-xl text-navy-900 font-normal tracking-wide" data-i18n="qa_q3">Are gifts expected?</span>
+                        <i class="fa-solid fa-chevron-down text-champagne-500 chevron transition-transform text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 text-navy-700 font-sans text-sm font-light leading-relaxed">
+                        <p class="pb-5" data-i18n="qa_a3">Having you with us in Zurich to celebrate our day is the greatest gift. Should you wish to gift us something extra, a contribution toward our honeymoon fund would mean the world to us.</p>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="accordion-item border border-champagne-300 rounded-sm bg-cream-50/50 overflow-hidden transition">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
+                        <span class="font-serif text-xl text-navy-900 font-normal tracking-wide" data-i18n="qa_q4">Can I bring a guest / kids?</span>
+                        <i class="fa-solid fa-chevron-down text-champagne-500 chevron transition-transform text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 text-navy-700 font-sans text-sm font-light leading-relaxed">
+                        <p class="pb-5" data-i18n="qa_a4">Due to space capacity at our venue, we can only accommodate guests named explicitly on your invitation. Thank you so much for understanding!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 bg-navy-900 text-powder-200 text-center text-sm space-y-4 border-t border-champagne-500/40">
+        <p class="font-cinzel text-2xl text-cream-50 tracking-[0.2em] uppercase">Carolina &amp; Maximilian</p>
+        <p class="font-serif italic text-champagne-300 text-base" data-i18n="footer_text">We can't wait to celebrate with you in Zurich!</p>
+        <div class="w-16 h-[1px] hairline-gold mx-auto my-4"></div>
+        <p class="text-xs text-powder-400 tracking-widest uppercase">&copy; 2028 Carolina &amp; Maximilian Wedding</p>
+    </footer>
+
+    <!-- TRANSLATION DICTIONARIES & LOGIC -->
+    <script>
+        const translations = {
+            en: {
+                nav_story: "Our Story",
+                nav_countdown: "Countdown",
+                nav_schedule: "Schedule",
+                nav_gallery: "Gallery",
+                nav_accommodation: "Accommodation",
+                nav_qanda: "Q & A",
+                hero_date: "April 15, 2028 • Zurich, Switzerland",
+                cd_header: "Save The Date",
+                countdown_title: "Counting Down to the Big Day",
+                cd_days: "Days",
+                cd_hours: "Hours",
+                cd_minutes: "Minutes",
+                cd_seconds: "Seconds",
+                story_subtitle: "Welcome",
+                story_title: "Two Worlds, One Heart",
+                story_text_1: "When an Argentinian spark meets German devotion, something truly magical happens. Our love story is the union of two distinct cultures—blending South American warmth, passion, and joie de vivre with European precision, sincerity, and grounded romanticism.",
+                story_text_2: "Across borders, languages, and continents, we found a shared rhythm and built a home together in Switzerland. Now, surrounded by the stunning landscapes of Zurich and the people we cherish most, we are overjoyed to say 'I do' and dance into our forever.",
+                venue_subtitle: "Location",
+                venue_title: "About The Venue",
+                venue_name: "Renaissance Zürich Tower Hotel",
+                venue_desc: "Located in the dynamic heart of Zurich West, our wedding celebration will unfold at the iconic Renaissance Zürich Tower Hotel.",
+                open_maps_btn: "Open in Google Maps",
+                schedule_subtitle: "April 15, 2028",
+                schedule_title: "Schedule of Events",
+                event1_title: "Symbolic Ceremony",
+                event1_desc: "Join us as we exchange our vows and celebrate our union surrounded by nature and love.",
+                event2_title: "Apéro",
+                event2_desc: "A toast to love! Enjoy drinks, appetizers, and good conversation in the afternoon sun.",
+                event3_title: "3-Course Dinner",
+                event4_title: "First Dance",
+                event4_desc: "Opening the evening dance floor with our first dance as husband and wife.",
+                event5_title: "Party & Dance Floor",
+                event5_desc: "Time to celebrate! Dancing, drinks, and unforgettable moments until late into the night.",
+                event6_title: "Wedding Cake Cut",
+                event6_desc: "A sweet midnight tradition to recharge the party energy.",
+                gallery_subtitle: "Memories",
+                gallery_title: "Photo Gallery",
+                img_caption1: "Engagement Moments",
+                img_caption2: "Exploring Switzerland",
+                img_caption3: "Travels Across South America",
+                acc_subtitle: "Where to Stay",
+                acc_title: "Accommodation",
+                acc_intro: "We want your stay in Zurich to be as comfortable as possible. Here are our top hotel recommendations close to the venue.",
+                acc_ibis_title: "ibis / ibis budget Zurich City West",
+                acc_ibis_badge: "Directly Across The Street",
+                acc_ibis_desc: "Located right opposite our wedding venue. Rooms range from 100 to 140 per night. If you are interested in staying here, please let us know in advance as we will request a group discount!",
+                acc_venue_title: "Renaissance Zürich Tower Hotel",
+                acc_venue_badge: "Official Wedding Venue",
+                acc_venue_desc: "Stay right where the celebration takes place! Guests attending our wedding can enjoy a 15% discount on room bookings at the Renaissance.",
+                acc_airbnb_title: "Airbnb & Apartments",
+                acc_airbnb_badge: "Zurich West Area",
+                acc_airbnb_desc: "There are also wonderful Airbnb apartments and private rentals available around the Zurich West district, just a short walk or tram ride from the hotel.",
+                qa_subtitle: "Information",
+                qa_title: "Questions & Answers",
+                qa_q1: "What is the dress code?",
+                qa_a1: "The dress code is Elegant Formal. Suits and ties or formal evening gowns are requested. Kindly note: Guests should refrain from wearing white or beige dresses. White dress shirts for men are completely fine! Thank you so much for your understanding.",
+                qa_q2: "Where is the wedding and how do I get there?",
+                qa_a2: "The entire wedding celebration takes place at the Renaissance Zürich Tower Hotel (Turbinenstrasse 20, 8005 Zürich). It is located in Zurich West and is very easy to reach by train (S-Bahn stop Bahnhof Hardbrücke, 3 min walk), Tram 8 or 17 (stops Hardbrücke or Schiffbau), or taxi. Please check the embedded map in the 'About The Venue' section above for exact routing.",
+                qa_q3: "Are gifts expected?",
+                qa_a3: "Having you with us in Zurich to celebrate our day is the greatest gift. Should you wish to gift us something extra, a contribution toward our honeymoon fund would mean the world to us.",
+                qa_q4: "Can I bring a guest / kids?",
+                qa_a4: "Due to space capacity at our venue, we can only accommodate guests named explicitly on your invitation. Thank you so much for understanding!",
+                footer_text: "We can't wait to celebrate with you in Zurich!"
+            },
+            de: {
+                nav_story: "Unsere Geschichte",
+                nav_countdown: "Countdown",
+                nav_schedule: "Ablauf",
+                nav_gallery: "Galerie",
+                nav_accommodation: "Unterkunft",
+                nav_qanda: "Fragen & Antworten",
+                hero_date: "15. April 2028 • Zürich, Schweiz",
+                cd_header: "Save The Date",
+                countdown_title: "Der Countdown zu unserem großen Tag",
+                cd_days: "Tage",
+                cd_hours: "Stunden",
+                cd_minutes: "Minuten",
+                cd_seconds: "Sekunden",
+                story_subtitle: "Willkommen",
+                story_title: "Zwei Welten, ein Herzensschlag",
+                story_text_1: "Wenn argentinisches Temperament auf deutsche Beständigkeit trifft, entsteht eine wunderbare Verbindung. Unsere Liebesgeschichte vereint zwei einzigartige Kulturen: die südamerikanische Wärme, Leidenschaft und Lebensfreude mit europäischer Verlässlichkeit, Tiefe und herzlicher Romantik.",
+                story_text_2: "Über Grenzen und Kontinente hinweg haben wir unser gemeinsames Zuhause in der Schweiz aufgebaut. Umgeben von der wunderschönen Kulisse Zürichs und unseren liebsten Menschen freuen wir uns unglaublich darauf, Ja zu sagen und gemeinsam in die Zukunft zu tanzen.",
+                venue_subtitle: "Location",
+                venue_title: "Über Die Location",
+                venue_name: "Renaissance Zürich Tower Hotel",
+                venue_desc: "Im Herzen von Zürich-West findet unsere Hochzeitsfeier im eleganten Renaissance Zürich Tower Hotel statt.",
+                open_maps_btn: "In Google Maps öffnen",
+                schedule_subtitle: "15. April 2028",
+                schedule_title: "Tagesablauf",
+                event1_title: "Symbolische Zeremonie",
+                event1_desc: "Begleitet uns, wenn wir unser Eheversprechen ablegen und unsere Liebe feiern.",
+                event2_title: "Apéro",
+                event2_desc: "Ein Hoch auf die Liebe! Erfrischende Getränke, Häppchen und beste Gesellschaft.",
+                event3_title: "3-Gänge-Menü",
+                event4_title: "Erster Tanz",
+                event4_desc: "Wir eröffnen die Tanzfläche mit unserem ersten Tanz als Ehepaar.",
+                event5_title: "Party & Tanzfläche",
+                event5_desc: "Zeit zu feiern! Musik, Cocktails und unvergessliche Momente bis in die frühen Morgenstunden.",
+                event6_title: "Hochzeitstorte",
+                event6_desc: "Ein süßer Mitternachtsmoment zur Stärkung für die Partynacht.",
+                gallery_subtitle: "Erinnerungen",
+                gallery_title: "Fotogalerie",
+                img_caption1: "Moment der Verlobung",
+                img_caption2: "Unterwegs in der Schweiz",
+                img_caption3: "Reisen durch Südamerika",
+                acc_subtitle: "Unterkünfte",
+                acc_title: "Unterkunft",
+                acc_intro: "Wir möchten, dass euer Aufenthalt in Zürich so angenehm wie möglich wird. Hier sind unsere Hotel-Empfehlungen in der Nähe.",
+                acc_ibis_title: "ibis / ibis budget Zurich City West",
+                acc_ibis_badge: "Direkt Gegenüber Der Location",
+                acc_ibis_desc: "Befindet sich direkt gegenüber vom Hotel der Hochzeitsfeier. Zimmer kosten ca. 100 bis 140 pro Nacht. Gebt uns bitte Bescheid, falls ihr hier übernachten möchtet, da wir einen Gruppenrabatt anfragen werden!",
+                acc_venue_title: "Renaissance Zürich Tower Hotel",
+                acc_venue_badge: "Offizielle Hochzeits-Location",
+                acc_venue_desc: "Übernachtet direkt dort, wo die Feier stattfindet! Unsere Hochzeitsgäste erhalten 15% Rabatt auf Zimmerbuchungen im Renaissance.",
+                acc_airbnb_title: "Airbnb & Apartments",
+                acc_airbnb_badge: "Bereich Zürich West",
+                acc_airbnb_desc: "Es gibt auch wunderbare Airbnb-Wohnungen und private Unterkünfte in Zürich-West, nur wenige Gehminuten oder eine kurze Tramfahrt entfernt.",
+                qa_subtitle: "Informationen",
+                qa_title: "Fragen & Antworten",
+                qa_q1: "Wie lautet der Dresscode?",
+                qa_a1: "Der Dresscode ist Elegant & Festlich. Wir bitten davon abzusehen, weiße oder beige Kleider zu tragen. Weiße Hemden für Herren sind selbstverständlich absolut in Ordnung! Vielen Dank für euer Verständnis.",
+                qa_q2: "Wo findet die Hochzeit statt und wie komme ich hin?",
+                qa_a2: "Die gesamte Feier findet im Renaissance Zürich Tower Hotel (Turbinenstrasse 20, 8005 Zürich) statt. Die Location liegt in Zürich-West und ist sehr einfach erreichbar: per S-Bahn (Bahnhof Hardbrücke, 3 Min. Fußweg), Tram 8 oder 17 (Haltestelle Hardbrücke / Schiffbau) oder Taxi. Schaut gerne auf die Karte oben im Abschnitt 'Über Die Location'.",
+                qa_q3: "Wie sieht es mit Geschenken aus?",
+                qa_a3: "Eure Anwesenheit in Zürich ist für uns das allergrößte Geschenk. Wer uns zusätzlich eine Freude machen möchte, darf uns gerne bei unserer Hochzeitsreise unterstützen.",
+                qa_q4: "Kann ich Begleitpersonen oder Kinder mitbringen?",
+                qa_a4: "Aufgrund der Kapazitäten der Location können wir leider nur namentlich in der Einladung genannte Gäste empfangen. Vielen Dank für euer Verständnis!",
+                footer_text: "Wir freuen uns riesig darauf, mit euch in Zürich zu feiern!"
+            },
+            es: {
+                nav_story: "Nuestra Historia",
+                nav_countdown: "Cuenta Atrás",
+                nav_schedule: "Programa",
+                nav_gallery: "Galería",
+                nav_accommodation: "Alojamiento",
+                nav_qanda: "Preguntas Frecuentes",
+                hero_date: "15 de Abril de 2028 • Zúrich, Suiza",
+                cd_header: "Reserva La Fecha",
+                countdown_title: "Cuenta atrás para el gran día",
+                cd_days: "Días",
+                cd_hours: "Horas",
+                cd_minutes: "Minutos",
+                cd_seconds: "Segundos",
+                story_subtitle: "Bienvenidos",
+                story_title: "Dos Mundos, Un Corazón",
+                story_text_1: "Cuando el fuego argentino y la calidez sudamericana se unen a la serenidad y devoción alemana, nace una historia de amor mágica. Nuestra relación celebra la unión de dos culturas hermosas: combinando la pasión, la alegría de vivir y la calidez con la sinceridad, la solidez y el romanticismo auténtico.",
+                story_text_2: "Cruzando fronteras y continentes, construimos juntos nuestro hogar en Suiza. Ahora, rodeados del paisaje único de Zúrich y de nuestras personas favoritas, estamos felices de decir 'sí, quiero' y bailar juntos para siempre.",
+                venue_subtitle: "Ubicación",
+                venue_title: "Sobre El Lugar",
+                venue_name: "Renaissance Zürich Tower Hotel",
+                venue_desc: "Ubicado en el vibrante corazón de Zúrich Oeste, nuestra celebración tendrá lugar en el emblemático Renaissance Zürich Tower Hotel.",
+                open_maps_btn: "Abrir en Google Maps",
+                schedule_subtitle: "15 de Abril de 2028",
+                schedule_title: "Programa del Día",
+                event1_title: "Ceremonia Simbólica",
+                event1_desc: "Acompáñanos mientras intercambiamos nuestros votos y celebramos nuestro amor.",
+                event2_title: "Apéro",
+                event2_desc: "¡Un brindis por el amor! Disfruta de bebidas, aperitivos y buena compañía.",
+                event3_title: "Cena de 3 Pasos",
+                event4_title: "Primer Baile",
+                event4_desc: "Inauguramos la pista de baile con nuestro primer baile como marido y mujer.",
+                event5_title: "Fiesta y Pista de Baile",
+                event5_desc: "¡Momento de celebrar! Música, cócteles y recuerdos inolvidables hasta altas horas.",
+                event6_title: "Tarta Nupcial",
+                event6_desc: "El dulce toque de midnight para recargar energías en la pista.",
+                gallery_subtitle: "Recuerdos",
+                gallery_title: "Galería de Fotos",
+                img_caption1: "Momento del Compromiso",
+                img_caption2: "Descubriendo Suiza",
+                img_caption3: "Viajes por Sudamérica",
+                acc_subtitle: "Dónde Alojarse",
+                acc_title: "Alojamiento",
+                acc_intro: "Queremos que vuestra estancia en Zúrich sea lo más cómoda posible. Aquí tenéis nuestras mejores recomendaciones de alojamiento cerca del lugar de la boda.",
+                acc_ibis_title: "ibis / ibis budget Zurich City West",
+                acc_ibis_badge: "Justo Enfrente Del Hotel De La Boda",
+                acc_ibis_desc: "Ubicados justo enfrente del hotel donde será la celebración. Cuestan entre 100 y 140 por noche. Si estás interesado en alojarte aquí, avísanos con tiempo ya que buscaremos un descuento por cantidad.",
+                acc_venue_title: "Renaissance Zürich Tower Hotel",
+                acc_venue_badge: "Hotel Oficial De La Boda",
+                acc_venue_desc: "¡Alójate donde se celebra la boda! Los invitados a nuestra boda disponen de un 15% de descuento en las habitaciones del hotel.",
+                acc_airbnb_title: "Airbnb y Apartamentos",
+                acc_airbnb_badge: "Zona de Zúrich Oeste",
+                acc_airbnb_desc: "También hay fantásticos apartamentos en Airbnb y alquileres privados disponibles en la zona de Zúrich Oeste, a solo unos pasos o a una breve parada de tranvía.",
+                qa_subtitle: "Información",
+                qa_title: "Preguntas y Respuestas",
+                qa_q1: "¿Cuál es el código de vestimenta?",
+                qa_a1: "El código de vestimenta es Formal Elegante. Les pedimos por favor evitar usar vestidos blancos o beiges (¡las camisas blancas para hombres están perfectamente bien!). ¡Muchas gracias por la comprensión!",
+                qa_q2: "¿Dónde es la boda y cómo llego?",
+                qa_a2: "Toda la celebración se realizará en el Renaissance Zürich Tower Hotel (Turbinenstrasse 20, 8005 Zúrich). Se encuentra en Zúrich Oeste y es de muy fácil acceso: en tren (estación S-Bahn Hardbrücke a 3 min a pie), tranvía 8 o 17 (paradas Hardbrücke / Schiffbau) o taxi. Revisa el mapa interactivo en la sección 'Sobre El Lugar'.",
+                qa_q3: "¿Qué hay sobre los regalos?",
+                qa_a3: "Vuestra presencia en Zúrich es el mejor regalo de todos. Si deseáis hacernos un detalle adicional, una contribución a nuestra luna de miel nos hará muy felices.",
+                qa_q4: "¿Puedo llevar acompañante o niños?",
+                qa_a4: "Debido al aforo del lugar, solo podemos recibir a los invitados nombrados formalmente en la invitación. ¡Muchas gracias por la comprensión!",
+                footer_text: "¡Estamos deseando celebrar con vosotros en Zúrich!"
+            }
+        };
+
+        // Function to switch website text dynamically
+        function setLanguage(lang) {
+            if (!Object.prototype.hasOwnProperty.call(translations, lang)) return;
+            document.documentElement.lang = lang;
+
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update active states on language buttons with flags
+            ['en', 'de', 'es'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (l === lang) {
+                    btn.className = "px-2.5 py-1 rounded-full transition-all duration-300 bg-navy-800 text-cream-50 shadow-sm flex items-center gap-1.5";
+                } else {
+                    btn.className = "px-2.5 py-1 rounded-full transition-all duration-300 text-navy-700 hover:text-powder-500 flex items-center gap-1.5";
+                }
+            });
+        }
+
+        // Use the first supported browser language, including regional variants.
+        function getPreferredLanguage() {
+            const languages = navigator.languages?.length
+                ? navigator.languages
+                : [navigator.language || 'en'];
+
+            for (const locale of languages) {
+                const lang = locale.toLowerCase().split(/[-_]/)[0];
+                if (Object.prototype.hasOwnProperty.call(translations, lang)) return lang;
+            }
+
+            return 'en';
+        }
+
+        setLanguage(getPreferredLanguage());
+
+        // Countdown Timer Logic
+        const targetDate = new Date('April 15, 2028 17:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+                document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('cd-minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('cd-seconds').innerText = String(seconds).padStart(2, '0');
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Q&A Accordion Logic
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                i.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't already active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+    </script>
+</body>
+</html>
